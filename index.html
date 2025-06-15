@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rajdeep Dutta | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -73,6 +77,16 @@
       border-radius: 5px;
       margin-top: 20px;
     }
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #0dcaf0;
+    }
   </style>
 </head>
 <body>
@@ -127,8 +141,29 @@
     <a href="Rajdeep_Dutta_Resume.pdf" class="button" download>Download Resume</a>
   </section>
 
+  <section id="connect" style="background-color:#e9ecef; padding: 40px 20px;">
+    <h2 style="text-align:center; color:#343a40;">Let's Connect</h2>
+    <div style="max-width: 600px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 30px; text-align: center;">
+      <img src="https://avatars.githubusercontent.com/u/105479425?v=4" alt="Rajdeep Dutta" style="width:100px; height:100px; border-radius:50%; margin-bottom: 20px;">
+      <p style="font-size: 18px; margin-bottom: 20px;">I’m always open to connecting with fellow developers, recruiters, and AI enthusiasts. Let’s grow together!</p>
+      <div class="social-icons" style="margin-bottom: 20px;">
+        <a href="https://www.linkedin.com/in/rajdeep-dutta-38969524b/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Dutta-Raj" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <a href="https://www.linkedin.com/in/rajdeep-dutta-38969524b/" target="_blank" style="display:inline-block; padding: 12px 24px; background-color:#0077b5; color:white; text-decoration:none; border-radius:5px; font-weight:bold;">Connect on LinkedIn</a>
+    </div>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Rajdeep Dutta. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/rajdeep-dutta-38969524b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Dutta-Raj" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top:10px;">&copy; 2025 Rajdeep Dutta. All Rights Reserved.</p>
   </footer>
 
   <script>
