@@ -228,6 +228,26 @@
 
     .certificate p {
       color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .certificate .button {
+      display: inline-block;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #4a9eff, #2a70d1);
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(74, 158, 255, 0.3);
+    }
+
+    .certificate .button:hover {
+      background: linear-gradient(135deg, #2a70d1, #4a9eff);
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(74, 158, 255, 0.5);
     }
 
     .button {
@@ -354,14 +374,6 @@
     .skill-category:nth-child(6) {
       background: linear-gradient(135deg, #008678, #3da69c);
     }
-    
-    .skill-category:nth-child(7) {
-      background: linear-gradient(135deg, #d14b95, #e47fa1);
-    }
-    
-    .skill-category:nth-child(8) {
-      background: linear-gradient(135deg, #5a3c83, #8565bd);
-    }
   </style>
 </head>
 <body>
@@ -390,48 +402,39 @@
     </p>
   </section>
 
+  <!-- UPDATED SKILLS SECTION -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <div class="skills-container">
       
       <div class="skill-category">
         <h4>Programming Languages</h4>
-        <p>Python, Java, JavaScript, C, C++, HTML5/CSS3, SQL</p>
+        <p>Python, Java, JavaScript, C, HTML/CSS</p>
       </div>
 
       <div class="skill-category">
-        <h4>AI/ML & Deep Learning</h4>
-        <p>TensorFlow, Keras, PyTorch, Scikit-learn, OpenCV, CNN, LSTM, NLP, Computer Vision</p>
+        <h4>Web Development</h4>
+        <p>Flask, React.js, RESTful APIs, JWT, bcrypt</p>
       </div>
 
       <div class="skill-category">
-        <h4>Frontend Development</h4>
-        <p>React.js, HTML5, CSS3, JavaScript ES6+, Bootstrap, Responsive Design</p>
+        <h4>AI/ML Frameworks</h4>
+        <p>TensorFlow, Keras, Scikit-learn, Computer Vision, OCR, NLP</p>
       </div>
 
       <div class="skill-category">
-        <h4>Backend Development</h4>
-        <p>Node.js, Express.js, Flask, Django, RESTful APIs, Microservices</p>
+        <h4>Database</h4>
+        <p>SQL, MongoDB, MySQL Workbench</p>
       </div>
 
       <div class="skill-category">
-        <h4>Database Systems</h4>
-        <p>MySQL, MongoDB, PostgreSQL, Firebase, Database Design & Optimization</p>
-      </div>
-
-      <div class="skill-category">
-        <h4>DevOps & Tools</h4>
-        <p>Git, GitHub, Docker, AWS, Jenkins, VS Code, Jupyter, Google Colab</p>
-      </div>
-
-      <div class="skill-category">
-        <h4>Testing & Security</h4>
-        <p>JUnit, Pytest, Selenium, JWT, OAuth, Encryption, Security Best Practices</p>
+        <h4>Tools</h4>
+        <p>GitHub, VS Code, Google Colab, Power BI, Excel, Hugging Face</p>
       </div>
 
       <div class="skill-category">
         <h4>Soft Skills</h4>
-        <p>Problem Solving, Team Leadership, Agile Methodology, Research & Analysis, Technical Writing</p>
+        <p>Problem Solving, Time Management, Analytical Thinking, Team Collaboration</p>
       </div>
       
     </div>
@@ -491,37 +494,40 @@
     </div>
   </section>
 
+  <!-- UPDATED CERTIFICATES SECTION -->
   <section id="certificates">
     <h2>Certifications</h2>
     
     <div class="certificate">
-      <h4><i class="fas fa-certificate"></i> Deep Learning Specialization</h4>
-      <p><strong>Issuer:</strong> DeepLearning.AI (Coursera)</p>
-      <p>Completed comprehensive deep learning course covering Neural Networks, CNNs, RNNs, and Transformers</p>
+      <h4><i class="fas fa-certificate"></i> Python Full Stack Developer</h4>
+      <p><strong>Issuer:</strong> EduSkills - AICTE</p>
+      <p><strong>Year:</strong> 2024</p>
+      <p>Certificate in full-stack web development with Python.</p>
+      <a href="https://drive.google.com/file/d/1ma_n1ERjnPKCErM3hAbTZIYdYtXBuwHv/view?usp=sharing" target="_blank" class="button">View Certificate</a>
     </div>
 
     <div class="certificate">
-      <h4><i class="fas fa-certificate"></i> AWS Certified Developer - Associate</h4>
-      <p><strong>Issuer:</strong> Amazon Web Services</p>
-      <p>Certified in developing and maintaining AWS-based applications</p>
+      <h4><i class="fas fa-certificate"></i> Generative AI: Prompt Engineering Basics</h4>
+      <p><strong>Issuer:</strong> Coursera</p>
+      <p><strong>Year:</strong> 2024</p>
+      <p>Fundamentals of prompt engineering for generative AI models.</p>
+      <a href="https://www.coursera.org/account/accomplishments/records/WI3G70E7VXC1" target="_blank" class="button">View Certificate</a>
     </div>
 
     <div class="certificate">
-      <h4><i class="fas fa-certificate"></i> Full Stack Web Development</h4>
-      <p><strong>Issuer:</strong> NPTEL (IIT Madras)</p>
-      <p>Completed advanced web development course with focus on MERN stack</p>
+      <h4><i class="fas fa-certificate"></i> Generative AI: Introduction and Application</h4>
+      <p><strong>Issuer:</strong> Coursera</p>
+      <p><strong>Year:</strong> 2024</p>
+      <p>Introduction to generative AI concepts and practical applications.</p>
+      <a href="https://www.coursera.org/account/accomplishments/verify/LI5T1Q84FUW3" target="_blank" class="button">View Certificate</a>
     </div>
 
     <div class="certificate">
-      <h4><i class="fas fa-certificate"></i> Machine Learning with Python</h4>
-      <p><strong>Issuer:</strong> IBM (Coursera)</p>
-      <p>Professional certificate in machine learning algorithms and implementation</p>
-    </div>
-
-    <div class="certificate">
-      <h4><i class="fas fa-certificate"></i> Python for Data Science</h4>
-      <p><strong>Issuer:</strong> University of Michigan (Coursera)</p>
-      <p>Specialization in data analysis, visualization, and machine learning with Python</p>
+      <h4><i class="fas fa-certificate"></i> Saviynt Identity Security for AI Age</h4>
+      <p><strong>Issuer:</strong> Saviynt</p>
+      <p><strong>Year:</strong> 2025</p>
+      <p>Certified in identity security principles for artificial intelligence systems.</p>
+      <a href="https://drive.google.com/file/d/1F85dS_MjHioL7zJe-2YSo9uKLWlmPAwo/view?usp=sharing" target="_blank" class="button">View Certificate</a>
     </div>
   </section>
 
@@ -588,7 +594,7 @@
 
   <footer>
     <p>&copy; 2025 Rajdeep Dutta | Full-Stack Developer & AI Researcher | Designed with ❤️ for Innovation</p>
-    <p style="margin-top: 10px; font-size: 0.9em; color: #aaa;">Last Updated: January 2025</p>
+    <p style="margin-top: 10px; font-size: 0.9em; color: #aaa;">Last Updated: December 2025</p>
   </footer>
 
   <script>
