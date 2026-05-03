@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rajdeep Dutta | AI Engineer & Full-Stack Developer</title>
+<title>Rajdeep Dutta | AI Engineer & Full-Stack Developer | 3D Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #050810;
-  --surface: rgba(10,15,30,0.85);
-  --blue: #2979ff;
-  --cyan: #00e5ff;
-  --violet: #7c4dff;
-  --green: #00e676;
-  --amber: #ffab40;
-  --text: #e8eaf6;
-  --muted: #546e8a;
-  --border: rgba(41,121,255,0.2);
+  --bg: #0a0f1a;
+  --bg-light: #111827;
+  --surface: rgba(20, 28, 45, 0.85);
+  --blue: #3b82f6;
+  --cyan: #06b6d4;
+  --violet: #8b5cf6;
+  --green: #10b981;
+  --amber: #f59e0b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: rgba(59,130,246,0.25);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -26,10 +27,11 @@ html{scroll-behavior:smooth;}
 
 body{
   font-family:'DM Mono',monospace;
-  background:var(--bg);
+  background: linear-gradient(135deg, #0a0f1a 0%, #0f172a 50%, #0a0f1a 100%);
   color:var(--text);
   overflow-x:hidden;
   cursor:none;
+  min-height:100vh;
 }
 
 /* CUSTOM CURSOR */
@@ -39,11 +41,11 @@ body{
   pointer-events:none;z-index:9999;
   transform:translate(-50%,-50%);
   transition:transform 0.1s,width 0.2s,height 0.2s,opacity 0.2s;
-  mix-blend-mode:difference;
+  mix-blend-mode:screen;
 }
 #cursor-ring{
   position:fixed;width:36px;height:36px;
-  border:1px solid rgba(0,229,255,0.5);
+  border:1px solid rgba(6,182,212,0.6);
   border-radius:50%;pointer-events:none;
   z-index:9998;transform:translate(-50%,-50%);
   transition:transform 0.15s ease,width 0.25s,height 0.25s;
@@ -66,7 +68,7 @@ nav{
   position:fixed;top:0;left:50%;transform:translateX(-50%);
   width:calc(100% - 60px);max-width:1100px;
   margin-top:18px;
-  background:rgba(5,8,16,0.7);
+  background:rgba(17,24,39,0.8);
   backdrop-filter:blur(20px);
   border:1px solid var(--border);
   border-radius:50px;
@@ -121,7 +123,7 @@ nav{
 }
 .hero-bio{
   max-width:600px;margin:24px auto 0;
-  color:#6b80a0;font-size:0.88rem;line-height:1.9;
+  color:#94a3b8;font-size:0.88rem;line-height:1.9;
   opacity:0;animation:fadeUp 0.8s 0.8s forwards;
 }
 .hero-stats{
@@ -148,23 +150,24 @@ nav{
   position:relative;
   transform-style:preserve-3d;
   cursor:none;
+  z-index:10;
 }
 .btn-primary-3d{
   background:var(--blue);color:#fff;
-  box-shadow:0 8px 0 #1a56cc, 0 14px 20px rgba(41,121,255,0.3);
+  box-shadow:0 8px 0 #1e40af, 0 14px 20px rgba(59,130,246,0.3);
 }
 .btn-primary-3d:hover{
   transform:translateY(4px);
-  box-shadow:0 4px 0 #1a56cc, 0 8px 14px rgba(41,121,255,0.3);
+  box-shadow:0 4px 0 #1e40af, 0 8px 14px rgba(59,130,246,0.3);
 }
 .btn-secondary-3d{
   background:transparent;color:var(--cyan);
   border:1px solid var(--cyan);
-  box-shadow:0 8px 0 rgba(0,229,255,0.2), 0 14px 20px rgba(0,229,255,0.1);
+  box-shadow:0 8px 0 rgba(6,182,212,0.2), 0 14px 20px rgba(6,182,212,0.1);
 }
 .btn-secondary-3d:hover{
   transform:translateY(4px);
-  box-shadow:0 4px 0 rgba(0,229,255,0.2),0 8px 14px rgba(0,229,255,0.1);
+  box-shadow:0 4px 0 rgba(6,182,212,0.2),0 8px 14px rgba(6,182,212,0.1);
 }
 
 /* SCROLL INDICATOR */
@@ -191,26 +194,96 @@ section{padding:110px 30px;position:relative;}
 }
 .container{max-width:1100px;margin:0 auto;}
 
-/* 3D CARD BASE */
-.card-3d{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:30px;
-  transform-style:preserve-3d;
-  transition:transform 0.15s ease,box-shadow 0.15s ease;
-  position:relative;
-  overflow:hidden;
-  cursor:none;
+/* ========== FLIP CARD STYLES ========== */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  perspective: 1500px;
+  cursor: pointer;
 }
-.card-3d::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(41,121,255,0.08),transparent 60%);
-  opacity:0;transition:opacity 0.3s;
-  pointer-events:none;
-  border-radius:inherit;
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  text-align: left;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  border-radius: 16px;
 }
-.card-3d:hover::before{opacity:1;}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: rgba(15, 23, 42, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back-content h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.back-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.back-content li {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(6,182,212,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-content li:last-child {
+  border-bottom: none;
+}
+
+.back-content li i {
+  color: var(--green);
+  font-style: normal;
+}
+
+.flip-hint {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 0.65rem;
+  color: var(--muted);
+  opacity: 0.6;
+}
 
 /* SKILLS */
 .skills-grid{
@@ -236,7 +309,7 @@ section{padding:110px 30px;position:relative;}
 .skill-card:hover::after{transform:scaleX(1);}
 .skill-icon-wrap{
   width:44px;height:44px;border-radius:10px;
-  background:rgba(41,121,255,0.12);
+  background:rgba(59,130,246,0.12);
   display:flex;align-items:center;justify-content:center;
   margin-bottom:16px;font-size:1.3rem;
 }
@@ -246,61 +319,45 @@ section{padding:110px 30px;position:relative;}
 }
 .tags{display:flex;flex-wrap:wrap;gap:7px;}
 .tag{
-  background:rgba(41,121,255,0.1);
-  border:1px solid rgba(41,121,255,0.2);
+  background:rgba(59,130,246,0.1);
+  border:1px solid rgba(59,130,246,0.2);
   padding:4px 11px;border-radius:4px;
   font-size:0.72rem;color:#7fa7e8;letter-spacing:0.5px;
 }
 
-/* PROJECTS */
+/* PROJECTS GRID */
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
   gap:24px;
 }
-.project-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:28px;
-  transform-style:preserve-3d;
-  transition:transform 0.15s,box-shadow 0.15s;
-  cursor:none;
-  position:relative;overflow:hidden;
-}
-.project-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(41,121,255,0.07),transparent 60%);
-  opacity:0;transition:opacity 0.3s;pointer-events:none;
-  border-radius:inherit;
-}
-.project-card:hover::before{opacity:1;}
+
 .project-number{
   font-family:'Syne',sans-serif;
-  font-size:3.5rem;font-weight:800;
-  color:rgba(41,121,255,0.07);
+  font-size:3rem;font-weight:800;
+  color:rgba(59,130,246,0.07);
   position:absolute;top:10px;right:20px;
   line-height:1;user-select:none;
 }
 .project-icon{
   width:48px;height:48px;border-radius:12px;
-  background:linear-gradient(135deg,rgba(41,121,255,0.2),rgba(0,229,255,0.1));
+  background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(6,182,212,0.1));
   display:flex;align-items:center;justify-content:center;
   font-size:1.4rem;margin-bottom:18px;
-  border:1px solid rgba(41,121,255,0.2);
+  border:1px solid rgba(59,130,246,0.2);
 }
-.project-card h3{
+.flip-card-front h3{
   font-family:'Syne',sans-serif;
   font-size:1.05rem;font-weight:700;
   color:#fff;margin-bottom:12px;
 }
-.project-card p{
+.flip-card-front p{
   font-size:0.82rem;color:#5a738a;line-height:1.8;margin-bottom:18px;
 }
 .project-tech{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
 .tech-pill{
-  background:rgba(124,77,255,0.1);
-  border:1px solid rgba(124,77,255,0.25);
+  background:rgba(139,92,246,0.1);
+  border:1px solid rgba(139,92,246,0.25);
   padding:3px 10px;border-radius:4px;
   font-size:0.68rem;color:#9b73ff;letter-spacing:0.5px;
 }
@@ -318,12 +375,12 @@ section{padding:110px 30px;position:relative;}
   border:1px solid rgba(255,255,255,0.1);
   color:#7a90a8;
 }
-.plink-gh:hover{background:rgba(41,121,255,0.15);border-color:var(--blue);color:#fff;}
+.plink-gh:hover{background:rgba(59,130,246,0.15);border-color:var(--blue);color:#fff;}
 
 /* PUBLICATION */
 .pub-card{
-  background:linear-gradient(135deg,rgba(0,230,118,0.05) 0%,rgba(0,229,255,0.03) 100%);
-  border:1px solid rgba(0,230,118,0.25);
+  background:linear-gradient(135deg,rgba(16,185,129,0.08) 0%,rgba(6,182,212,0.05) 100%);
+  border:1px solid rgba(16,185,129,0.3);
   border-radius:20px;padding:40px;
   position:relative;overflow:hidden;
 }
@@ -331,11 +388,11 @@ section{padding:110px 30px;position:relative;}
   content:'IEEE';
   position:absolute;top:-10px;right:30px;
   font-family:'Syne',sans-serif;font-size:8rem;font-weight:800;
-  color:rgba(0,230,118,0.04);line-height:1;user-select:none;
+  color:rgba(16,185,129,0.04);line-height:1;user-select:none;
 }
 .pub-badge{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);
+  background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);
   padding:6px 16px;border-radius:4px;
   font-size:0.72rem;letter-spacing:2px;color:var(--green);
   text-transform:uppercase;margin-bottom:20px;
@@ -369,7 +426,7 @@ section{padding:110px 30px;position:relative;}
 }
 .cert-card{
   background:var(--surface);
-  border:1px solid rgba(255,171,64,0.18);
+  border:1px solid rgba(245,158,11,0.2);
   border-radius:12px;padding:22px;
   cursor:none;
   transition:all 0.25s;
@@ -378,7 +435,7 @@ section{padding:110px 30px;position:relative;}
 }
 .cert-card:hover{
   transform:perspective(600px) rotateX(-4deg) translateY(-4px);
-  border-color:rgba(255,171,64,0.4);
+  border-color:rgba(245,158,11,0.5);
   box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 .cert-dot{
@@ -394,8 +451,8 @@ section{padding:110px 30px;position:relative;}
 
 /* VOLUNTEERING */
 .vol-card{
-  background:linear-gradient(135deg,rgba(124,77,255,0.08),rgba(41,121,255,0.05));
-  border:1px solid rgba(124,77,255,0.25);
+  background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(59,130,246,0.05));
+  border:1px solid rgba(139,92,246,0.3);
   border-radius:20px;padding:50px 40px;
   text-align:center;max-width:500px;margin:0 auto;
   cursor:none;
@@ -441,26 +498,26 @@ section{padding:110px 30px;position:relative;}
 .contact-btn::after{
   content:'';position:absolute;
   bottom:-6px;left:0;right:0;height:6px;
-  background:rgba(41,121,255,0.3);
+  background:rgba(59,130,246,0.3);
   border-radius:0 0 8px 8px;
   transition:bottom 0.2s,height 0.2s;
 }
 .contact-btn:hover{
   transform:translateY(3px);
-  border-color:rgba(41,121,255,0.5);
+  border-color:rgba(59,130,246,0.5);
 }
 .contact-btn:hover::after{bottom:-3px;height:3px;}
 .contact-btn .cb-icon{
   width:36px;height:36px;border-radius:8px;
-  background:rgba(41,121,255,0.15);
+  background:rgba(59,130,246,0.15);
   display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;
 }
 .contact-btn.resume-c{
-  background:linear-gradient(135deg,rgba(0,230,118,0.15),rgba(0,229,255,0.08));
-  border-color:rgba(0,230,118,0.3);
+  background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.08));
+  border-color:rgba(16,185,129,0.3);
 }
-.contact-btn.resume-c::after{background:rgba(0,230,118,0.2);}
+.contact-btn.resume-c::after{background:rgba(16,185,129,0.2);}
 
 /* DIVIDER */
 .divider{
@@ -474,7 +531,7 @@ section{padding:110px 30px;position:relative;}
 footer{
   text-align:center;padding:40px 30px;
   border-top:1px solid var(--border);
-  font-size:0.75rem;color:#2c3e55;letter-spacing:1px;
+  font-size:0.75rem;color:#334155;letter-spacing:1px;
 }
 footer span{color:var(--cyan);}
 
@@ -504,6 +561,9 @@ footer span{color:var(--cyan);}
   .hero-stats{gap:25px;}
   .stat-num{font-size:1.6rem;}
   section{padding:80px 20px;}
+  .flip-card, .flip-card-inner, .flip-card-front, .flip-card-back {
+    min-height: 420px;
+  }
 }
 </style>
 </head>
@@ -575,74 +635,17 @@ footer span{color:var(--cyan);}
       <div class="divider"></div>
     </div>
     <div class="skills-grid">
-      <div class="skill-card card-3d sr sr-delay-1">
-        <div class="skill-icon-wrap">⌨️</div>
-        <h4>Languages</h4>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Java</span>
-        </div>
-      </div>
-      <div class="skill-card card-3d sr sr-delay-2">
-        <div class="skill-icon-wrap">🖥️</div>
-        <h4>Web & Backend</h4>
-        <div class="tags">
-          <span class="tag">Spring Boot 3.3</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Django</span>
-          <span class="tag">Next.js 14</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">REST API</span>
-        </div>
-      </div>
-      <div class="skill-card card-3d sr sr-delay-3">
-        <div class="skill-icon-wrap">🧠</div>
-        <h4>AI / ML &amp; NLP</h4>
-        <div class="tags">
-          <span class="tag">RAG</span>
-          <span class="tag">GPT-4o-mini</span>
-          <span class="tag">Groq</span>
-          <span class="tag">Cohere AI</span>
-          <span class="tag">Gemini 1.5</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">Keras</span>
-        </div>
-      </div>
-      <div class="skill-card card-3d sr sr-delay-4">
-        <div class="skill-icon-wrap">☁️</div>
-        <h4>Cloud & DevOps</h4>
-        <div class="tags">
-          <span class="tag">Docker</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">CI/CD</span>
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">AWS</span>
-          <span class="tag">Vercel</span>
-        </div>
-      </div>
-      <div class="skill-card card-3d sr sr-delay-1">
-        <div class="skill-icon-wrap">🗄️</div>
-        <h4>Databases</h4>
-        <div class="tags">
-          <span class="tag">MySQL</span>
-          <span class="tag">MongoDB</span>
-        </div>
-      </div>
-      <div class="skill-card card-3d sr sr-delay-2">
-        <div class="skill-icon-wrap">🤝</div>
-        <h4>Soft Skills</h4>
-        <div class="tags">
-          <span class="tag">Agile</span>
-          <span class="tag">Team Collab</span>
-          <span class="tag">Problem Solving</span>
-          <span class="tag">Time Mgmt</span>
-        </div>
-      </div>
+      <div class="skill-card card-3d sr sr-delay-1"><div class="skill-icon-wrap">⌨️</div><h4>Languages</h4><div class="tags"><span class="tag">Python</span><span class="tag">Java</span></div></div>
+      <div class="skill-card card-3d sr sr-delay-2"><div class="skill-icon-wrap">🖥️</div><h4>Web & Backend</h4><div class="tags"><span class="tag">Spring Boot 3.3</span><span class="tag">Flask</span><span class="tag">Django</span><span class="tag">Next.js 14</span><span class="tag">Node.js</span><span class="tag">REST API</span></div></div>
+      <div class="skill-card card-3d sr sr-delay-3"><div class="skill-icon-wrap">🧠</div><h4>AI / ML &amp; NLP</h4><div class="tags"><span class="tag">RAG</span><span class="tag">GPT-4o-mini</span><span class="tag">Groq</span><span class="tag">Cohere AI</span><span class="tag">Gemini 1.5</span><span class="tag">TensorFlow</span><span class="tag">Keras</span></div></div>
+      <div class="skill-card card-3d sr sr-delay-4"><div class="skill-icon-wrap">☁️</div><h4>Cloud & DevOps</h4><div class="tags"><span class="tag">Docker</span><span class="tag">Kafka</span><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">AWS</span><span class="tag">Vercel</span></div></div>
+      <div class="skill-card card-3d sr sr-delay-1"><div class="skill-icon-wrap">🗄️</div><h4>Databases</h4><div class="tags"><span class="tag">MySQL</span><span class="tag">MongoDB</span></div></div>
+      <div class="skill-card card-3d sr sr-delay-2"><div class="skill-icon-wrap">🤝</div><h4>Soft Skills</h4><div class="tags"><span class="tag">Agile</span><span class="tag">Team Collab</span><span class="tag">Problem Solving</span><span class="tag">Time Mgmt</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECTS with FLIP CARDS -->
 <section id="projects">
   <div class="container">
     <div class="section-header sr">
@@ -651,72 +654,110 @@ footer span{color:var(--cyan);}
       <div class="divider"></div>
     </div>
     <div class="projects-grid">
-
-      <div class="project-card sr sr-delay-1">
-        <div class="project-number">01</div>
-        <div class="project-icon">🎓</div>
-        <h3>Student Engage — AI FinTech</h3>
-        <p>Study-abroad guidance platform covering loans across 3 banks, 10+ universities & visa processes for 4 countries. RAG pipeline eliminating hallucinated responses. 8+ RESTful APIs.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Spring Boot 3.3</span>
-          <span class="tech-pill">RAG</span>
-          <span class="tech-pill">GPT-4o-mini</span>
-          <span class="tech-pill">Docker</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Dutta-Raj/Student-Engage" target="_blank" class="plink plink-gh">↗ GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card sr sr-delay-2">
-        <div class="project-number">02</div>
-        <div class="project-icon">🎤</div>
-        <h3>AI Tutor Screener</h3>
-        <p>Voice-based AI screening platform for Cuemath Build Challenge. Real-time speech recognition with adaptive follow-up questions via Groq-powered Llama 3. Automated scoring & reports.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Next.js 14</span>
-          <span class="tech-pill">Groq Llama 3</span>
-          <span class="tech-pill">Voice AI</span>
-          <span class="tech-pill">Vercel</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Dutta-Raj/tutor-screener" target="_blank" class="plink plink-gh">↗ GitHub</a>
+      <!-- Project 1 Flip Card -->
+      <div class="flip-card sr sr-delay-1" data-card="1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="project-number">01</div>
+            <div class="project-icon">🎓</div>
+            <h3>Student Engage — AI FinTech</h3>
+            <p>Study-abroad guidance platform covering loans across 3 banks, 10+ universities & visa processes for 4 countries. RAG pipeline eliminating hallucinated responses.</p>
+            <div class="project-tech"><span class="tech-pill">Spring Boot 3.3</span><span class="tech-pill">RAG</span><span class="tech-pill">GPT-4o-mini</span><span class="tech-pill">Docker</span></div>
+            <div class="project-links"><a href="https://github.com/Dutta-Raj/Student-Engage" target="_blank" class="plink plink-gh">↗ GitHub</a></div>
+            <div class="flip-hint">⬤ Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="back-content">
+              <h4>📊 Key Achievements</h4>
+              <ul>
+                <li><i>✓</i> 8+ RESTful APIs across 5 domain endpoints</li>
+                <li><i>✓</i> Containerized with Docker (single docker-compose up)</li>
+                <li><i>✓</i> RAG pipeline with top-4 chunk retrieval</li>
+                <li><i>✓</i> Eliminated hallucinated responses on financial queries</li>
+                <li><i>✓</i> Covers 3 banks, 10+ universities, 4 countries</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="project-card sr sr-delay-3">
-        <div class="project-number">03</div>
-        <div class="project-icon">🎫</div>
-        <h3>Support Triage AI Agent</h3>
-        <p>Built in 24hrs at HackerRank Orchestrate Hackathon. Processed 29 real tickets with <strong style="color:var(--cyan)">62% auto-resolution rate</strong>. Multi-agent routing via Gemini 1.5 Flash.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">Gemini 1.5</span>
-          <span class="tech-pill">Agentic AI</span>
-          <span class="tech-pill">Team ×3</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Dutta-Raj/Support-triage-ai-agent" target="_blank" class="plink plink-gh">↗ GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card sr sr-delay-4">
-        <div class="project-number">04</div>
-        <div class="project-icon">🤖</div>
-        <h3>Healthbot — AI Healthcare</h3>
-        <p>AI health assistant with medical safety guardrails. 30-day persistent chat history. Kafka event-driven queuing. GitHub Actions CI/CD for automated deployment.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Flask</span>
-          <span class="tech-pill">MongoDB</span>
-          <span class="tech-pill">Cohere AI</span>
-          <span class="tech-pill">Kafka</span>
-          <span class="tech-pill">CI/CD</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Dutta-Raj/Healthbot" target="_blank" class="plink plink-gh">↗ GitHub</a>
+      <!-- Project 2 Flip Card -->
+      <div class="flip-card sr sr-delay-2" data-card="2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="project-number">02</div>
+            <div class="project-icon">🎤</div>
+            <h3>AI Tutor Screener</h3>
+            <p>Voice-based AI screening platform for Cuemath Build Challenge. Real-time speech recognition with adaptive follow-up questions via Groq-powered Llama 3.</p>
+            <div class="project-tech"><span class="tech-pill">Next.js 14</span><span class="tech-pill">Groq Llama 3</span><span class="tech-pill">Voice AI</span><span class="tech-pill">Vercel</span></div>
+            <div class="project-links"><a href="https://github.com/Dutta-Raj/tutor-screener" target="_blank" class="plink plink-gh">↗ GitHub</a></div>
+            <div class="flip-hint">⬤ Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="back-content">
+              <h4>🎯 Impact</h4>
+              <ul>
+                <li><i>✓</i> 5-dimension assessment (Communication, Patience, Simplicity, Fluency, Temperament)</li>
+                <li><i>✓</i> Automated scoring rubric & report generation</li>
+                <li><i>✓</i> Live deployment on Vercel</li>
+                <li><i>✓</i> Reduced manual screening time significantly</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- Project 3 Flip Card -->
+      <div class="flip-card sr sr-delay-3" data-card="3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="project-number">03</div>
+            <div class="project-icon">🎫</div>
+            <h3>Support Triage AI Agent</h3>
+            <p>Built in 24hrs at HackerRank Orchestrate Hackathon. Processed 29 real tickets with <strong style="color:var(--cyan)">62% auto-resolution rate</strong>.</p>
+            <div class="project-tech"><span class="tech-pill">Python</span><span class="tech-pill">Gemini 1.5</span><span class="tech-pill">Agentic AI</span><span class="tech-pill">Team ×3</span></div>
+            <div class="project-links"><a href="https://github.com/Dutta-Raj/Support-triage-ai-agent" target="_blank" class="plink plink-gh">↗ GitHub</a></div>
+            <div class="flip-hint">⬤ Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="back-content">
+              <h4>🏆 Hackathon Results</h4>
+              <ul>
+                <li><i>✓</i> 62% auto-resolution rate on 29 real tickets</li>
+                <li><i>✓</i> Multi-agent routing with Gemini 1.5 Flash</li>
+                <li><i>✓</i> Risk detection: Critical/High/Low classification</li>
+                <li><i>✓</i> Team of 3 under 24-hour constraint</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 Flip Card -->
+      <div class="flip-card sr sr-delay-4" data-card="4">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="project-number">04</div>
+            <div class="project-icon">🤖</div>
+            <h3>Healthbot — AI Healthcare</h3>
+            <p>AI health assistant with medical safety guardrails. 30-day persistent chat history. Kafka event-driven queuing. GitHub Actions CI/CD for automated deployment.</p>
+            <div class="project-tech"><span class="tech-pill">Flask</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Cohere AI</span><span class="tech-pill">Kafka</span><span class="tech-pill">CI/CD</span></div>
+            <div class="project-links"><a href="https://github.com/Dutta-Raj/Healthbot" target="_blank" class="plink plink-gh">↗ GitHub</a></div>
+            <div class="flip-hint">⬤ Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="back-content">
+              <h4>⚙️ Technical Highlights</h4>
+              <ul>
+                <li><i>✓</i> Kafka event-driven message queuing</li>
+                <li><i>✓</i> GitHub Actions CI/CD + automated deployment</li>
+                <li><i>✓</i> 30-day persistent chat history with MongoDB</li>
+                <li><i>✓</i> Cohere AI with medical safety guardrails</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -740,10 +781,7 @@ footer span{color:var(--cyan);}
         Hybrid <strong style="color:#8ab4d4">CNN + BiLSTM + Attention</strong> architecture for reading handwritten and printed medical prescriptions. Features advanced preprocessing — skew correction, noise removal, CLAHE — with medical term extraction. Outperformed existing SOTA models.
       </p>
       <div class="accuracy-bar">
-        <div class="accuracy-label">
-          <span>Recognition Accuracy</span>
-          <span class="bar-pct">91%</span>
-        </div>
+        <div class="accuracy-label"><span>Recognition Accuracy</span><span class="bar-pct">91%</span></div>
         <div class="bar-track"><div class="bar-fill" data-width="91"></div></div>
         <div class="bar-compare">
           <span class="compare-item">Our model: <strong>91%</strong></span>
@@ -768,12 +806,12 @@ footer span{color:var(--cyan);}
       <div class="cert-card sr sr-delay-1"><div class="cert-dot"></div><h4>Python Full Stack Development</h4><p>EduSkills – AICTE · 2024</p></div>
       <div class="cert-card sr sr-delay-2"><div class="cert-dot"></div><h4>Generative AI: Prompt Engineering</h4><p>IBM – Coursera · 2025</p></div>
       <div class="cert-card sr sr-delay-3"><div class="cert-dot"></div><h4>AWS Cloud Foundations</h4><p>Amazon Web Services · 2025</p></div>
-      <div class="cert-card sr sr-delay-4"><div class="cert-dot"></div><h4>Saviynt Identity Security for AI Age</h4><p>Saviynt · 2025</p></div>
+      <div class="cert-card sr sr-delay-4"><div class="cert-dot"></div><h4>Saviynt Identity Security</h4><p>Saviynt · 2025</p></div>
       <div class="cert-card sr sr-delay-1"><div class="cert-dot"></div><h4>Cisco Cybersecurity</h4><p>Cisco Networking Academy · 2026</p></div>
       <div class="cert-card sr sr-delay-2"><div class="cert-dot"></div><h4>Explore &amp; Analyse Data with Python</h4><p>Microsoft · 2026</p></div>
       <div class="cert-card sr sr-delay-3"><div class="cert-dot"></div><h4>Java (Basic)</h4><p>HackerRank · 2026</p></div>
-      <div class="cert-card sr sr-delay-4"><div class="cert-dot"></div><h4>Siemens Mobility – Operations Eng.</h4><p>Forage · 2026</p></div>
-      <div class="cert-card sr sr-delay-1"><div class="cert-dot"></div><h4>Tata – GenAI Powered Data Analytics</h4><p>Forage · 2026</p></div>
+      <div class="cert-card sr sr-delay-4"><div class="cert-dot"></div><h4>Siemens Mobility – Ops Eng.</h4><p>Forage · 2026</p></div>
+      <div class="cert-card sr sr-delay-1"><div class="cert-dot"></div><h4>Tata – GenAI Data Analytics</h4><p>Forage · 2026</p></div>
     </div>
   </div>
 </section>
@@ -804,26 +842,11 @@ footer span{color:var(--cyan);}
       <div class="divider"></div>
     </div>
     <div class="contact-wrap sr">
-      <a href="mailto:rajdeepdutta104@gmail.com" class="contact-btn">
-        <div class="cb-icon">✉️</div>
-        <span>Email</span>
-      </a>
-      <a href="https://www.linkedin.com/in/rajdeep-dutta-38969524b/" target="_blank" class="contact-btn">
-        <div class="cb-icon">💼</div>
-        <span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/Dutta-Raj" target="_blank" class="contact-btn">
-        <div class="cb-icon">🐙</div>
-        <span>GitHub</span>
-      </a>
-      <a href="https://www.hackerrank.com/profile/rajdeepdutta104" target="_blank" class="contact-btn">
-        <div class="cb-icon">⌨️</div>
-        <span>HackerRank</span>
-      </a>
-      <a href="https://drive.google.com/file/d/1v4cZIBl2USfEtiOM4b9xqcD_HAT8t1Ol/view?usp=sharing" target="_blank" class="contact-btn resume-c">
-        <div class="cb-icon">📄</div>
-        <span>Resume</span>
-      </a>
+      <a href="mailto:rajdeepdutta104@gmail.com" class="contact-btn"><div class="cb-icon">✉️</div><span>Email</span></a>
+      <a href="https://www.linkedin.com/in/rajdeep-dutta-38969524b/" target="_blank" class="contact-btn"><div class="cb-icon">💼</div><span>LinkedIn</span></a>
+      <a href="https://github.com/Dutta-Raj" target="_blank" class="contact-btn"><div class="cb-icon">🐙</div><span>GitHub</span></a>
+      <a href="https://www.hackerrank.com/profile/rajdeepdutta104" target="_blank" class="contact-btn"><div class="cb-icon">⌨️</div><span>HackerRank</span></a>
+      <a href="https://drive.google.com/file/d/1v4cZIBl2USfEtiOM4b9xqcD_HAT8t1Ol/view?usp=sharing" target="_blank" class="contact-btn resume-c"><div class="cb-icon">📄</div><span>Resume</span></a>
     </div>
   </div>
 </section>
@@ -837,7 +860,7 @@ footer span{color:var(--cyan);}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // ======================================================
-// THREE.JS BACKGROUND — Floating 3D Nodes & Connections
+// THREE.JS BACKGROUND — Brighter Version
 // ======================================================
 (function(){
   const canvas = document.getElementById('bg-canvas');
@@ -849,59 +872,54 @@ footer span{color:var(--cyan);}
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 100);
   camera.position.z = 30;
 
-  // Particles geometry
-  const count = 120;
+  // Brighter particles
+  const count = 150;
   const positions = new Float32Array(count * 3);
   const speeds = [];
   for(let i=0;i<count;i++){
-    positions[i*3]   = (Math.random()-0.5)*80;
-    positions[i*3+1] = (Math.random()-0.5)*60;
-    positions[i*3+2] = (Math.random()-0.5)*30;
+    positions[i*3]   = (Math.random()-0.5)*90;
+    positions[i*3+1] = (Math.random()-0.5)*70;
+    positions[i*3+2] = (Math.random()-0.5)*35;
     speeds.push({
-      x:(Math.random()-0.5)*0.008,
-      y:(Math.random()-0.5)*0.006,
-      z:(Math.random()-0.5)*0.004
+      x:(Math.random()-0.5)*0.01,
+      y:(Math.random()-0.5)*0.008,
+      z:(Math.random()-0.5)*0.006
     });
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
   const mat = new THREE.PointsMaterial({
-    color:0x2979ff, size:0.18, transparent:true, opacity:0.6,
+    color:0x3b82f6, size:0.22, transparent:true, opacity:0.7,
     sizeAttenuation:true
   });
   const points = new THREE.Points(geo, mat);
   scene.add(points);
 
-  // Lines between nearby particles
-  const lineMat = new THREE.LineBasicMaterial({
-    color:0x2979ff, transparent:true, opacity:0.06
-  });
-
-  // Grid plane
+  // Grid plane - brighter
   const gridGeo = new THREE.PlaneGeometry(100,80,20,16);
   const gridMat = new THREE.MeshBasicMaterial({
-    color:0x1a3060,wireframe:true,transparent:true,opacity:0.04
+    color:0x1e3a8a,wireframe:true,transparent:true,opacity:0.08
   });
   const grid = new THREE.Mesh(gridGeo, gridMat);
   grid.rotation.x = -Math.PI/2.5;
   grid.position.y = -18;
   scene.add(grid);
 
-  // Floating dodecahedron
+  // Floating shapes
   const dodGeo = new THREE.DodecahedronGeometry(3,0);
   const dodMat = new THREE.MeshBasicMaterial({
-    color:0x2979ff,wireframe:true,transparent:true,opacity:0.06
+    color:0x3b82f6,wireframe:true,transparent:true,opacity:0.1
   });
   const dod = new THREE.Mesh(dodGeo, dodMat);
-  dod.position.set(18,8,-5);
+  dod.position.set(20,10,-6);
   scene.add(dod);
 
   const dod2 = new THREE.Mesh(
     new THREE.OctahedronGeometry(2.5,0),
-    new THREE.MeshBasicMaterial({color:0x7c4dff,wireframe:true,transparent:true,opacity:0.07})
+    new THREE.MeshBasicMaterial({color:0x06b6d4,wireframe:true,transparent:true,opacity:0.12})
   );
-  dod2.position.set(-20,-6,-8);
+  dod2.position.set(-22,-8,-10);
   scene.add(dod2);
 
   let mouse = {x:0,y:0};
@@ -916,38 +934,39 @@ footer span{color:var(--cyan);}
     renderer.setSize(window.innerWidth,window.innerHeight);
   });
 
-  let frame=0;
   function animate(){
     requestAnimationFrame(animate);
-    frame++;
-
-    // Move particles
     for(let i=0;i<count;i++){
       positions[i*3]   += speeds[i].x;
       positions[i*3+1] += speeds[i].y;
       positions[i*3+2] += speeds[i].z;
-      // wrap
-      if(Math.abs(positions[i*3])>40)   positions[i*3]   *= -0.98;
-      if(Math.abs(positions[i*3+1])>30) positions[i*3+1] *= -0.98;
-      if(Math.abs(positions[i*3+2])>15) positions[i*3+2] *= -0.98;
+      if(Math.abs(positions[i*3])>45)   positions[i*3]   *= -0.97;
+      if(Math.abs(positions[i*3+1])>35) positions[i*3+1] *= -0.97;
+      if(Math.abs(positions[i*3+2])>18) positions[i*3+2] *= -0.97;
     }
     geo.attributes.position.needsUpdate = true;
-
-    // Rotate shapes
     dod.rotation.x += 0.003;
     dod.rotation.y += 0.005;
     dod2.rotation.x -= 0.004;
     dod2.rotation.z += 0.003;
-
-    // Camera parallax
     camera.position.x += (mouse.x * 3 - camera.position.x) * 0.02;
     camera.position.y += (mouse.y * 2 - camera.position.y) * 0.02;
     camera.lookAt(scene.position);
-
     renderer.render(scene, camera);
   }
   animate();
 })();
+
+// ======================================================
+// FLIP CARD FUNCTIONALITY
+// ======================================================
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    // Don't flip if clicking on a link
+    if(e.target.closest('a')) return;
+    card.classList.toggle('flipped');
+  });
+});
 
 // ======================================================
 // CUSTOM CURSOR
@@ -964,7 +983,7 @@ function animCursor(){
   requestAnimationFrame(animCursor);
 }
 animCursor();
-document.querySelectorAll('a,button,.card-3d,.project-card,.skill-card,.cert-card,.vol-card,.contact-btn').forEach(el=>{
+document.querySelectorAll('a,button,.card-3d,.skill-card,.cert-card,.vol-card,.contact-btn,.flip-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{
     cursor.style.width='20px';cursor.style.height='20px';
     ring.style.width='56px';ring.style.height='56px';
@@ -985,11 +1004,10 @@ function initTilt(selector){
       const x = e.clientX - r.left;
       const y = e.clientY - r.top;
       const cx2 = r.width/2, cy2 = r.height/2;
-      const rotX = (y-cy2)/cy2 * -8;
-      const rotY = (x-cx2)/cx2 * 8;
-      card.style.transform=`perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(10px)`;
-      card.style.boxShadow=`${-rotY*2}px ${rotX*2}px 40px rgba(0,0,0,0.5), 0 0 30px rgba(41,121,255,0.1)`;
-      // spotlight
+      const rotX = (y-cy2)/cy2 * -6;
+      const rotY = (x-cx2)/cx2 * 6;
+      card.style.transform=`perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
+      card.style.boxShadow=`${-rotY*2}px ${rotX*2}px 40px rgba(0,0,0,0.5), 0 0 30px rgba(59,130,246,0.15)`;
       const pctX = (x/r.width)*100;
       const pctY = (y/r.height)*100;
       card.style.setProperty('--mx',pctX+'%');
@@ -1001,9 +1019,9 @@ function initTilt(selector){
     });
   });
 }
-initTilt('.project-card');
 initTilt('.skill-card');
 initTilt('.pub-card');
+initTilt('.vol-card');
 
 // ======================================================
 // SCROLL REVEAL
@@ -1058,9 +1076,12 @@ document.querySelectorAll('.pub-card').forEach(c=>barObs.observe(c));
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    e.preventDefault();
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    const href = a.getAttribute('href');
+    if(href === '#' || href === '#volunteering' || href === '#publications' || href === '#certificates' || href === '#skills' || href === '#projects' || href === '#contact'){
+      e.preventDefault();
+      const t=document.querySelector(href);
+      if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    }
   });
 });
 </script>
